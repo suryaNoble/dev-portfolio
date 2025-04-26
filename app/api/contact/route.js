@@ -2,6 +2,13 @@ import axios from "axios";
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
+const corsHeaders = {
+  "Access-Control-Allow-Origin":
+    "https://dev-portfolio-905qmooie-suryas-projects-eaaf1865.vercel.app",
+  "Access-Control-Allow-Methods": "POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type",
+};
+
 // Create and configure Nodemailer transporter
 const transporter = nodemailer.createTransport({
   service: "gmail",
@@ -12,6 +19,10 @@ const transporter = nodemailer.createTransport({
     user: process.env.EMAIL_ADDRESS,
     pass: process.env.GMAIL_PASSKEY,
   },
+  tls: {
+    rejectUnauthorized: false,
+  },
+  connectionTimeout: 10000,
 });
 
 // Helper function to send a message via Telegram
@@ -67,6 +78,27 @@ async function sendEmail(payload, message) {
   }
 }
 
+export async function OPTIONS() {
+  return NextResponse.json(
+    {},
+    {
+      headers: {
+        corsHeaders,
+      },
+    }
+  );
+}
+
+// export async function OPTIONS() {
+//   return new Response(null, {
+//     headers: {
+//       "Access-Control-Allow-Origin": "http://localhost:3000",
+//       "Access-Control-Allow-Methods": "POST, OPTIONS",
+//       "Access-Control-Allow-Headers": "Content-Type",
+//     },
+//   });
+// }
+
 export async function POST(request) {
   try {
     const payload = await request.json();
@@ -96,7 +128,12 @@ export async function POST(request) {
           success: true,
           message: "Message and email sent successfully!",
         },
-        { status: 200 }
+        {
+          status: 200,
+          headers: {
+            corsHeaders,
+          },
+        }
       );
     }
 
@@ -105,7 +142,12 @@ export async function POST(request) {
         success: false,
         message: "Failed to send message or email.",
       },
-      { status: 500 }
+      {
+        status: 500,
+        headers: {
+          corsHeaders,
+        },
+      }
     );
   } catch (error) {
     console.error("API Error:", error.message);
