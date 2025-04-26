@@ -14,6 +14,19 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "Content-Type",
 };
 
+function getAllowedOrigin(request) {
+  const origin = request.headers.get("origin") || "";
+  const isVercelDeployment = /\.vercel\.app$/.test(origin);
+  const isLocalhost = origin.includes("localhost");
+
+  // Allow all Vercel deployments and localhost
+  if (isVercelDeployment || isLocalhost) {
+    return origin;
+  }
+
+  return null;
+}
+
 // Create and configure Nodemailer transporter
 const transporter = nodemailer.createTransport({
   service: "gmail",
@@ -84,14 +97,15 @@ async function sendEmail(payload, message) {
 }
 
 export async function OPTIONS() {
-  return NextResponse.json(
-    {},
-    {
-      headers: {
-        corsHeaders,
-      },
-    }
-  );
+  const allowedOrigin = getAllowedOrigin(request);
+
+  return new NextResponse(null, {
+    headers: {
+      "Access-Control-Allow-Origin": allowedOrigin || "*",
+      "Access-Control-Allow-Methods": "POST, OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type",
+    },
+  });
 }
 
 // export async function OPTIONS() {
@@ -105,6 +119,8 @@ export async function OPTIONS() {
 // }
 
 export async function POST(request) {
+  const allowedOrigin = getAllowedOrigin(request);
+
   try {
     const payload = await request.json();
     const { name, email, message: userMessage } = payload;
@@ -136,7 +152,9 @@ export async function POST(request) {
         {
           status: 200,
           headers: {
-            corsHeaders,
+            "Access-Control-Allow-Origin": allowedOrigin || "*",
+            "Access-Control-Allow-Methods": "POST, OPTIONS",
+            "Access-Control-Allow-Headers": "Content-Type",
           },
         }
       );
@@ -150,7 +168,9 @@ export async function POST(request) {
       {
         status: 500,
         headers: {
-          corsHeaders,
+          "Access-Control-Allow-Origin": allowedOrigin || "*",
+          "Access-Control-Allow-Methods": "POST, OPTIONS",
+          "Access-Control-Allow-Headers": "Content-Type",
         },
       }
     );
