@@ -17,8 +17,8 @@ export const projectsData = [
       "Oauth",
     ],
     role: "Full stack Developer",
-    code: "",
-    demo: "",
+    code: "https://github.com/suryaNoble/godoctor.git",
+    demo: "https://godoctor-frontend.onrender.com",
   },
   {
     id: 2,
@@ -38,8 +38,8 @@ export const projectsData = [
       "Sockets.io",
     ],
     role: "Full Stack Developer",
-    code: "",
-    demo: "",
+    code: "https://github.com/suryaNoble/goChat.git",
+    demo: "https://smalltalk-d18r.onrender.com/",
   },
   {
     id: 3,
