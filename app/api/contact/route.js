@@ -2,9 +2,14 @@ import axios from "axios";
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
+const allowedOrigins = [
+  "https://dev-portfolio-nine-gilt.vercel.app",
+  "http://localhost:3000",
+  "https://dev-portfolio-905qmooie-suryas-projects-eaaf1865.vercel.app",
+];
+
 const corsHeaders = {
-  "Access-Control-Allow-Origin":
-    "https://dev-portfolio-905qmooie-suryas-projects-eaaf1865.vercel.app",
+  "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Methods": "POST, OPTIONS",
   "Access-Control-Allow-Headers": "Content-Type",
 };
