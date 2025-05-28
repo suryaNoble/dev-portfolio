@@ -1,7 +1,7 @@
 export const projectsData = [
   {
     id: 1,
-    name: "Doctor Appointment Booking System",
+    name: "goDoctor",
     description:
       "I have developed a full-stack web app for a doctor appointment booking system, where users and doctors can login and update their profile i have also included google authentication so user can also login uisng Google and an admin panel where admin can control all appointments and doctors and also included the RAZORPAY payment gateway. I created the UI using React, Tailwind css, and other necessary npm libraries, updating doctor availability status. I developed the API using Express, MongoDB, and other necessary npm libraries. I deployed the front-end and backend using render.",
     tools: [
@@ -22,7 +22,7 @@ export const projectsData = [
   },
   {
     id: 2,
-    name: "Realtime Chat Application",
+    name: "goTalk",
     description:
       "I have developed a Real time chat application using sockets.io where users can communicate in real time, updating user status and profile picture live dynamically. I created UI using DaisyUI, Tailwind CSS, and other necessary npm libraries. Implemented signup and Login functionality using JWT and Bcrypt. users can also send images alongwith text messages where images are stored in cloudinary. I developed the API using Nodejs, Express, MongoDB, and other necessary npm libraries.",
     tools: [
@@ -72,6 +72,16 @@ export const projectsData = [
     tools: ["Reactjs", "Tailwind CSS"],
     code: "",
     demo: "",
+    role: "Frontend Developer",
+  },
+  {
+    id: 4,
+    name: "hiveGallery",
+    description:
+      "An interactive and responsive image gallery section for any website  using html and css. It is a simple and  basic image gallery where users can see the images and can also add/delete images and sections(rows and cloumns) can be adjusted accordingly.",
+    tools: ["Html", "Css"],
+    code: "https://github.com/suryaNoble/hiveGallery.git",
+    demo: "https://suryanoble.github.io/hiveGallery/",
     role: "Frontend Developer",
   },
 ];
