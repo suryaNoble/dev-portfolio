@@ -86,6 +86,8 @@ export const projectsData = [
   },
 ];
 
+//everytime you add a new project, please go to index.jsx in projects and change the slicing number to include the new project.
+
 // Do not remove any property.
 // Leave it blank instead as shown below
 
