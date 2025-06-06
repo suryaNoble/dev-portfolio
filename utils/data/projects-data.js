@@ -94,6 +94,16 @@ export const projectsData = [
     demo: "https://suryanoble.github.io/pet-campaign/",
     role: "Frontend Developer",
   },
+  {
+    id: 7,
+    name: "goTravel",
+    description:
+      "An AI assitant Travel planner application using react-router-7 where user can create their own Travel plan based on his/her needs by providing information like place,budget,plans,No.of.days etc..., and the AI agent using Gemini Tailor a plan with images fetched from Unsplash API according to the user plan and location.",
+    tools: ["Html", "Css", "javascript"],
+    code: "https://github.com/suryaNoble/react-dashboard.git",
+    demo: "https://react-dashboard-a5yc.vercel.app/",
+    role: "Full-Stack Developer",
+  },
 ];
 
 //everytime you add a new project, please go to index.jsx in projects and change the slicing number to include the new project.
