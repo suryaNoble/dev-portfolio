@@ -75,13 +75,23 @@ export const projectsData = [
     role: "Frontend Developer",
   },
   {
-    id: 4,
+    id: 5,
     name: "hiveGallery",
     description:
       "An interactive and responsive image gallery section for any website  using html and css. It is a simple and  basic image gallery where users can see the images and can also add/delete images and sections(rows and cloumns) can be adjusted accordingly.",
     tools: ["Html", "Css"],
     code: "https://github.com/suryaNoble/hiveGallery.git",
     demo: "https://suryanoble.github.io/hiveGallery/",
+    role: "Frontend Developer",
+  },
+  {
+    id: 6,
+    name: "DigiTails",
+    description:
+      "A digital literacy chatbot built into the Pet-Friendly City Campaign website. Helps volunteers master tech tools (WhatsApp, PayTM, Maps) while supporting pet welfare initiatives – making cities smarter and more paw-some!",
+    tools: ["Html", "Css", "javascript"],
+    code: "https://github.com/suryaNoble/pet-campaign.git",
+    demo: "https://suryanoble.github.io/pet-campaign/",
     role: "Frontend Developer",
   },
 ];
