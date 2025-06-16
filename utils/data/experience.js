@@ -2,7 +2,7 @@ export const experiences = [
   {
     id: 1,
     title: "FullStack Developer intern",
-    company: "scale orange",
+    company: "Scale orange",
     duration: "(oct 2024 - Mar 2025)",
   },
   {
